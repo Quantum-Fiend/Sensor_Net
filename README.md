@@ -1,5 +1,6 @@
 # 🌐 Sensor_Net IoT Platform
 
+![Sensor_Net Hero Banner](./hero_banner.png)
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.3-brightgreen)
 ![React](https://img.shields.io/badge/React-18.2.0-61DAFB)
@@ -125,7 +126,9 @@ sequenceDiagram
 -   **Docker** & **Docker Compose**
 -   **Maven** (Optional, wrapper included)
 
-### Installation
+### Installation & Production Deployment
+
+Sensor_Net is fully containerized for a seamless, production-ready deployment. You don't need to install Java, Node.js, or configure databases locally. Everything runs via Docker.
 
 1.  **Clone the Repository**
     ```bash
@@ -133,32 +136,25 @@ sequenceDiagram
     cd sensor-net
     ```
 
-2.  **Start Infrastructure (Database, MQTT, n8n)**
+2.  **Launch the Entire Stack (Production Mode)**
+    This single command will build and start the PostgreSQL database, Mosquitto MQTT Broker, Spring Boot Backend API, and the Vite/React Frontend.
     ```bash
+    docker-compose build
     docker-compose up -d
     ```
 
-3.  **Build & Run Backend**
-    ```bash
-    # Install dependencies
-    mvn clean install
+3.  **Access the Platform**
+    Once the containers are running, access the services:
+    -   **Frontend Dashboard**: `http://localhost:8081` (Fully responsive, dark-themed UI)
+    -   **Backend API Base URL**: `http://localhost:8080/api`
+    -   **API Swagger Docs**: `http://localhost:8080/swagger-ui.html`
+    -   **n8n Workflow Editor** (if enabled): `http://localhost:5678`
 
-    # Run the API module
-    cd sensor-net-api
-    mvn spring-boot:run
-    ```
+### Useful Commands
 
-4.  **Start Frontend**
-    ```bash
-    cd sensor-net-frontend
-    npm install
-    npm run dev
-    ```
-
-5.  **Access the Application**
-    -   **Frontend**: `http://localhost:5173`
-    -   **API Swagger**: `http://localhost:8080/swagger-ui.html`
-    -   **n8n Editor**: `http://localhost:5678`
+-   **View Live Logs**: `docker-compose logs -f`
+-   **Stop the System**: `docker-compose down`
+-   **Restart the Frontend (after changes)**: `docker-compose up -d --build frontend`
 
 ---
 
