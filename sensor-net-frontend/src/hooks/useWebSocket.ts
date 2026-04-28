@@ -8,7 +8,7 @@ export const useWebSocket = (topic: string) => {
   const [latestData, setLatestData] = useState<any>(null);
 
   useEffect(() => {
-    const socket = new SockJS('http://localhost:8080/ws-sensor-net');
+    const socket = new SockJS(import.meta.env.VITE_WS_URL || 'http://localhost:8080/ws-sensor-net');
     const client = Stomp.over(socket);
 
     client.connect({}, () => {

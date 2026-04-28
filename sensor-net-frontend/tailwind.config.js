@@ -7,13 +7,21 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				background: "#0a0a0c",
-				foreground: "#ffffff",
-				card: "#121216",
-				border: "#25252b",
-				primary: "#3b82f6",
-				accent: "#8b5cf6",
-			}
+				background: "hsl(var(--background))",
+				foreground: "hsl(var(--foreground))",
+				primary: "hsl(var(--primary))",
+				card: "hsl(var(--card))",
+				"card-foreground": "hsl(var(--card-foreground))",
+				muted: "hsl(var(--muted))",
+				"muted-foreground": "hsl(var(--muted-foreground))",
+				accent: "hsl(var(--accent))",
+				border: "hsl(var(--border))",
+			},
+			borderRadius: {
+				lg: "var(--radius)",
+				md: "calc(var(--radius) - 2px)",
+				sm: "calc(var(--radius) - 4px)",
+			},
 		},
 	},
 	plugins: [],
